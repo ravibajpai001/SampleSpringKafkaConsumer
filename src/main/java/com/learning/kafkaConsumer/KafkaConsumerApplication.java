@@ -15,6 +15,11 @@ public class KafkaConsumerApplication {
 	//consume message: bin\windows\kafka-console-consumer.bat --topic my-topic --bootstrap-server localhost:9092 --from-beginning
 
 
+	// if you create topic with two partition using
+	// bin\windows\kafka-topics.bat --create --topic my-topic-2p --bootstrap-server localhost:9092 --partitions 2 --replication-factor 1
+	// now if you start multiple instance of same application. you can see each instance will have different partition
+	// for second application we need to pass separate port
+	// java -jar kafkaConsumer-0.0.1-SNAPSHOT.jar --server.port=8081
 	public static void main(String[] args) {
 		SpringApplication.run(KafkaConsumerApplication.class, args);
 	}
